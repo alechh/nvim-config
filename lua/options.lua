@@ -1,0 +1,10 @@
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.termguicolors = true
+vim.o.signcolumn = "yes"
+vim.o.hidden = true
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.updatetime = 300
+vim.o.scrolloff = 8
+vim.g.mapleader = " "
