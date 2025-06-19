@@ -63,27 +63,42 @@ require("lazy").setup({
   {
     "akinsho/toggleterm.nvim",
     version = "*",
+    event = "VeryLazy",
     config = function()
-      require("toggleterm").setup({
+        require("toggleterm").setup({
         size = 15,
-        -- open_mapping = [[<C-\>]],
-        direction = "horizontal", -- можно vertical или tab
-        shade_terminals = true,
+        direction = "horizontal",
         start_in_insert = true,
-        insert_mappings = true,
-        terminal_mappings = true,
-      })
+        persist_mode = false,
+        shade_terminals = true,
+        })
 
-      -- Терминалы с номерами
-      local Terminal = require("toggleterm.terminal").Terminal
-      local term1 = Terminal:new({ cmd = "bash", hidden = true, direction = "horizontal", start_in_insert = true })
-      local term2 = Terminal:new({ cmd = "bash", hidden = true, direction = "horizontal", start_in_insert = true })
-      local term3 = Terminal:new({ cmd = "bash", hidden = true, direction = "horizontal", start_in_insert = true })
+        -- Храним все терминалы
+        local terminals = {
+        [1] = require("toggleterm.terminal").Terminal:new({ count = 1, direction = "horizontal", hidden = true }),
+        [2] = require("toggleterm.terminal").Terminal:new({ count = 2, direction = "horizontal", hidden = true }),
+        [3] = require("toggleterm.terminal").Terminal:new({ count = 3, direction = "horizontal", hidden = true }),
+        }
 
-      vim.keymap.set("n", "<leader>1", function() term1:toggle() end, { desc = "Toggle Terminal 1" })
-      vim.keymap.set("n", "<leader>2", function() term2:toggle() end, { desc = "Toggle Terminal 2" })
-      vim.keymap.set("n", "<leader>3", function() term3:toggle() end, { desc = "Toggle Terminal 3" })
-    end
+        -- Функция: показать терминал X, скрыть остальные
+        local function toggle_only(term_number)
+        for i, term in pairs(terminals) do
+            if i == term_number then
+            term:toggle()
+            else
+            -- Скрываем все остальные, если они открыты
+            if term:is_open() then
+                term:close()
+            end
+            end
+        end
+        end
+
+        -- Горячие клавиши
+        vim.keymap.set("n", "<leader>1", function() toggle_only(1) end, { desc = "Терминал 1" })
+        vim.keymap.set("n", "<leader>2", function() toggle_only(2) end, { desc = "Терминал 2" })
+        vim.keymap.set("n", "<leader>3", function() toggle_only(3) end, { desc = "Терминал 3" })
+    end,
   },
   {
     "nvim-lualine/lualine.nvim",
