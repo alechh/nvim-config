@@ -84,5 +84,28 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>2", function() term2:toggle() end, { desc = "Toggle Terminal 2" })
       vim.keymap.set("n", "<leader>3", function() term3:toggle() end, { desc = "Toggle Terminal 3" })
     end
-  }
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function()
+        return {
+        options = {
+            theme = "gruvbox",
+            icons_enabled = true,
+            section_separators = "",
+            component_separators = "|",
+            disabled_filetypes = { "alpha", "dashboard", "neo-tree" },
+        },
+        sections = {
+            lualine_a = { "mode" },
+            lualine_b = { "branch", "diff", "diagnostics" },
+            lualine_c = { "filename" },
+            lualine_x = { "encoding", "fileformat", "filetype" },
+            lualine_y = { "progress" },
+            lualine_z = { "location" },
+        },
+        }
+    end,
+    }
 })
