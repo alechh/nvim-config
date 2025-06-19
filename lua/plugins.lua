@@ -41,6 +41,7 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search in current file" })
       vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Search file names" })
       vim.keymap.set("n", "<leader>g", builtin.live_grep, { desc = "Search in file contents (grep)" })
+      vim.keymap.set("n", "<leader>q", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Search for functions in file" })
     end,
   },
   {
