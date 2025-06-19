@@ -45,11 +45,19 @@ require("lazy").setup({
     end,
   },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
+    "folke/tokyonight.nvim", enabled = false
+  },
+  {
+    "ellisonleao/gruvbox.nvim",
     priority = 1000,
+    lazy = false, -- чтобы загрузить сразу
     config = function()
-      vim.cmd("colorscheme tokyonight")
+      require("gruvbox").setup({
+        contrast = "hard",
+        transparent_mode = false,
+      })
+      vim.o.background = "dark"
+      vim.cmd.colorscheme("gruvbox")
     end,
   },
   {
