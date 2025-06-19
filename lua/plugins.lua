@@ -66,7 +66,7 @@ require("lazy").setup({
     config = function()
       require("toggleterm").setup({
         size = 15,
-        open_mapping = [[<C-\>]],
+        -- open_mapping = [[<C-\>]],
         direction = "horizontal", -- можно vertical или tab
         shade_terminals = true,
         start_in_insert = true,
@@ -76,9 +76,9 @@ require("lazy").setup({
 
       -- Терминалы с номерами
       local Terminal = require("toggleterm.terminal").Terminal
-      local term1 = Terminal:new({ cmd = "bash", hidden = true, direction = "horizontal" })
-      local term2 = Terminal:new({ cmd = "bash", hidden = true, direction = "horizontal" })
-      local term3 = Terminal:new({ cmd = "bash", hidden = true, direction = "horizontal" })
+      local term1 = Terminal:new({ cmd = "bash", hidden = true, direction = "horizontal", start_in_insert = true })
+      local term2 = Terminal:new({ cmd = "bash", hidden = true, direction = "horizontal", start_in_insert = true })
+      local term3 = Terminal:new({ cmd = "bash", hidden = true, direction = "horizontal", start_in_insert = true })
 
       vim.keymap.set("n", "<leader>1", function() term1:toggle() end, { desc = "Toggle Terminal 1" })
       vim.keymap.set("n", "<leader>2", function() term2:toggle() end, { desc = "Toggle Terminal 2" })
