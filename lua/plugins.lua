@@ -68,7 +68,7 @@ require("lazy").setup({
         require("toggleterm").setup({
         size = 15,
         direction = "horizontal",
-        start_in_insert = true,
+        start_in_insert = false,
         persist_mode = false,
         shade_terminals = true,
         })
@@ -78,6 +78,12 @@ require("lazy").setup({
         [1] = require("toggleterm.terminal").Terminal:new({ count = 1, direction = "horizontal", hidden = true }),
         [2] = require("toggleterm.terminal").Terminal:new({ count = 2, direction = "horizontal", hidden = true }),
         [3] = require("toggleterm.terminal").Terminal:new({ count = 3, direction = "horizontal", hidden = true }),
+        [4] = require("toggleterm.terminal").Terminal:new({ count = 4, direction = "horizontal", hidden = true }),
+        [5] = require("toggleterm.terminal").Terminal:new({ count = 5, direction = "horizontal", hidden = true }),
+        [6] = require("toggleterm.terminal").Terminal:new({ count = 6, direction = "horizontal", hidden = true }),
+        [7] = require("toggleterm.terminal").Terminal:new({ count = 7, direction = "horizontal", hidden = true }),
+        [8] = require("toggleterm.terminal").Terminal:new({ count = 8, direction = "horizontal", hidden = true }),
+        [9] = require("toggleterm.terminal").Terminal:new({ count = 9, direction = "horizontal", hidden = true }),
         }
 
         -- Функция: показать терминал X, скрыть остальные
@@ -98,6 +104,12 @@ require("lazy").setup({
         vim.keymap.set("n", "<leader>1", function() toggle_only(1) end, { desc = "Терминал 1" })
         vim.keymap.set("n", "<leader>2", function() toggle_only(2) end, { desc = "Терминал 2" })
         vim.keymap.set("n", "<leader>3", function() toggle_only(3) end, { desc = "Терминал 3" })
+        vim.keymap.set("n", "<leader>4", function() toggle_only(4) end, { desc = "Терминал 4" })
+        vim.keymap.set("n", "<leader>5", function() toggle_only(5) end, { desc = "Терминал 5" })
+        vim.keymap.set("n", "<leader>6", function() toggle_only(6) end, { desc = "Терминал 6" })
+        vim.keymap.set("n", "<leader>7", function() toggle_only(7) end, { desc = "Терминал 7" })
+        vim.keymap.set("n", "<leader>8", function() toggle_only(8) end, { desc = "Терминал 8" })
+        vim.keymap.set("n", "<leader>9", function() toggle_only(9) end, { desc = "Терминал 9" })
     end,
   },
   {
