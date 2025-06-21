@@ -42,6 +42,7 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Search file names" })
       vim.keymap.set("n", "<leader>g", builtin.live_grep, { desc = "Search in file contents (grep)" })
       vim.keymap.set("n", "<leader>q", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Search for functions in file" })
+      vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
     end,
   },
   {
