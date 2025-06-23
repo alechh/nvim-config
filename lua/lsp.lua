@@ -1,4 +1,15 @@
 require("lspconfig").clangd.setup({
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--compile-commands-dir=build"
+  },
+  root_dir = require('lspconfig.util').root_pattern(
+    "build/compile_commands.json",
+    "build/Makefile",
+    "Makefile",
+    "CMakeLists.txt"
+  ),
   on_attach = function(_, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)

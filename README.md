@@ -5,6 +5,9 @@ sudo apt install clangd ripgrep
 
 Также нужны Nerd шрифты для отображения иконок в дереве файлов (например, Jet Brains Nerd Mono https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip)
 
+## Генерация compile_commands.json
+Чтобы lsp нормально подхватывал все инклуды, нужно сгенерировать файл `compile_commands.json`. Для этого нужно при вызове CMake нужно указать флаг `-DCMAKE_EXPORT_COMPILE_COMMANDS=On`.
+
 ## Сочетания клавиш (leader = пробел)
 
 - leader + q -- поиск по функциям в текущем файле
