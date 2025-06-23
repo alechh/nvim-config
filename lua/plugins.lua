@@ -34,7 +34,10 @@ require("lazy").setup({
           find_files = {
             hidden = true,
             no_ignore = true,
-          }
+          },
+          lsp_document_symbols = {
+            symbol_width = 60
+          },
         },
       })
       local builtin = require("telescope.builtin")
