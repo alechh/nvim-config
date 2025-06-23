@@ -12,3 +12,7 @@ vim.keymap.set("n", "<leader>[", ":tabprevious<CR>", { desc = "Previous tab" })
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
+vim.keymap.set('v', "<leader>k", function()
+  vim.lsp.buf.format({ range = true })
+end, { desc = "Format selected code" })

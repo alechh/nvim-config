@@ -10,7 +10,9 @@ require("lspconfig").clangd.setup({
     "Makefile",
     "CMakeLists.txt"
   ),
-  on_attach = function(_, bufnr)
+  on_attach = function(client, bufnr)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = true
     local opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
