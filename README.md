@@ -4,6 +4,11 @@ sudo apt install clangd-12 ripgrep
 ```
 - clangd нужен версии >=12, чтобы подсветка синтаксиса работала корректно
 
+Добавляем symlink на установленный clangd
+```bash
+ln -s /usr/bin/clangd-12 /usr/bin/clangd
+```
+
 Также нужны Nerd шрифты для отображения иконок в дереве файлов (например, Jet Brains Nerd Mono https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip)
 
 ## Генерация compile_commands.json
