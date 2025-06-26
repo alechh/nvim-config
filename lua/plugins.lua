@@ -53,17 +53,17 @@ require("lazy").setup({
     "folke/tokyonight.nvim", enabled = false
   },
   {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    lazy = false, -- чтобы загрузить сразу
-    config = function()
-      require("gruvbox").setup({
-        contrast = "hard",
-        transparent_mode = false,
+  'projekt0n/github-nvim-theme',
+  name = 'github-theme',
+  lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  priority = 1000, -- make sure to load this before all the other start plugins
+  config = function()
+      require('github-theme').setup({
+      -- ...
       })
-      vim.o.background = "dark"
-      vim.cmd.colorscheme("gruvbox")
-    end,
+
+      vim.cmd('colorscheme github_dark_dimmed')
+  end,
   },
   {
     "akinsho/toggleterm.nvim",
@@ -123,7 +123,7 @@ require("lazy").setup({
     opts = function()
         return {
         options = {
-            theme = "gruvbox",
+            theme = "github_dark_dimmed",
             icons_enabled = true,
             section_separators = "",
             component_separators = "|",
