@@ -1,3 +1,5 @@
+local navic = require("nvim-navic")
+
 require("lspconfig").clangd.setup({
   cmd = {
     "clangd",
@@ -13,6 +15,9 @@ require("lspconfig").clangd.setup({
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = true
+    if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
+    end
     local opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)

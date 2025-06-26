@@ -51,6 +51,18 @@ require("lazy").setup({
     end,
   },
   {
+    "SmiteshP/nvim-navic",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      vim.g.navic_silence = true
+      require("nvim-navic").setup {
+        highlight = true,
+        separator = " > ",
+        depth_limit = 5,
+      }
+    end
+  },
+  {
     "folke/tokyonight.nvim", enabled = false
   },
   {

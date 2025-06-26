@@ -76,3 +76,4 @@ require("lsp")
 require("cmp_config")
 require("nvimtree")
 
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
