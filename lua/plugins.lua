@@ -27,7 +27,8 @@ require("lazy").setup({
           },
           file_ignore_patterns = {
             "^.git/",
-            "^build/CMakeFiles/",
+            "^build/",
+            ".clangd/
           }
         },
         pickers = {

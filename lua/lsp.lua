@@ -1,6 +1,6 @@
 require("lspconfig").clangd.setup({
   cmd = {
-    "clangd",
+    "clangd-12",
     "--background-index",
     "--compile-commands-dir=build"
   },
