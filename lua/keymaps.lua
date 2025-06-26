@@ -21,3 +21,8 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
+
+vim.keymap.set("n", "<leader>ps", function()
+  local word = vim.fn.expand("<cword>")
+  require("telescope.builtin").grep_string({ search = word, initial_mode = "normal" })
+end, { desc = "Grep word under cursor" })
