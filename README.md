@@ -1,7 +1,8 @@
 ## Что надо установить
 ```bash
-sudo apt install clangd ripgrep
+sudo apt install clangd-12 ripgrep
 ```
+- clangd нужен версии >=12, чтобы подсветка синтаксиса работала корректно
 
 Также нужны Nerd шрифты для отображения иконок в дереве файлов (например, Jet Brains Nerd Mono https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip)
 
