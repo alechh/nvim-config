@@ -37,7 +37,8 @@ require("lazy").setup({
             no_ignore = true,
           },
           lsp_document_symbols = {
-            symbol_width = 60
+            symbol_width = 60,
+            initial_mode = "normal",
           },
         },
       })
