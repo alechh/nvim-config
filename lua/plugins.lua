@@ -6,6 +6,25 @@ require("lazy").setup({
   { "hrsh7th/cmp-nvim-lsp" },
   { "neovim/nvim-lspconfig" },
   {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = { 'cpp', 'c' }, -- можно добавить другие
+        highlight = {
+          enable = true,              -- включить подсветку
+          additional_vim_regex_highlighting = false,
+        },
+        indent = {
+          enable = true,              -- автодействующий отступ (не всегда идеален)
+        },
+        fold = {
+          enable = true,
+        },
+      }
+    end
+  },
+  {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
     opts = {
