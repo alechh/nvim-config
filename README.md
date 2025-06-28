@@ -25,6 +25,7 @@ ln -s /usr/bin/clangd-12 /usr/bin/clangd
 - leader + 1, leader + 2, leader + 3, ... -- открыть терминалы рядом (до 9 штук)
 - leader + k -- форматирование (cland) выделенного участка кода
 - leader + ps -- поиск по слову, на котором стоит курсор
+- leader + j -- посмотреть сообщение Warning или Error на строке
 
 ## Стандартные
 - a -- создать файл (в nvim-tree)

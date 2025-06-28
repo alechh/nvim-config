@@ -26,3 +26,5 @@ vim.keymap.set("n", "<leader>ps", function()
   local word = vim.fn.expand("<cword>")
   require("telescope.builtin").grep_string({ search = word, initial_mode = "normal" })
 end, { desc = "Grep word under cursor" })
+
+vim.keymap.set('n', '<leader>j', vim.diagnostic.open_float)
