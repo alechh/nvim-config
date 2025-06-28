@@ -41,3 +41,11 @@ ln -s /usr/bin/clangd-12 /usr/bin/clangd
 - <CTRL>+w v --сплит вертикальный (vertical)
 - <CTRL>+w {HJKL} -- Поменять окна местами
 - <CTRL>+w o -- закрыть все окна, кроме текущего
+
+### Метки
+- m<lowercase letter> -- поставить метку
+- `<lowercase letter> -- прыгнуть к метке
+- m<UPPERCASE LETTER> -- поставить глобальную метк
+- `<UPPERCASE LETTER> -- прыгнуть к глобальной метке
+- :marks -- список всех меток
+- :delm A-Z0-9 -- удалить метку
