@@ -53,17 +53,17 @@ bear -- make
 - gd -- перейти к определению/объявлению
 
 ### Сплит экранов
-- <CTRL>+w s -- сплит вверх (south)
-- <CTRL>+w n -- сплит сниз (north)
-- <CTRL>+w v --сплит вертикальный (vertical)
-- <CTRL>+w {HJKL} -- Поменять окна местами
-- <CTRL>+w o -- закрыть все окна, кроме текущего
+- CTRL + w s -- сплит вверх (south)
+- CTRL + w n -- сплит сниз (north)
+- CTRL + w v --сплит вертикальный (vertical)
+- CTRL + w {HJKL} -- Поменять окна местами
+- CTRL + w o -- закрыть все окна, кроме текущего
 
 ### Метки
-- m<lowercase letter> -- поставить метку
-- `<lowercase letter> -- прыгнуть к метке
-- m<UPPERCASE LETTER> -- поставить глобальную метк
-- `<UPPERCASE LETTER> -- прыгнуть к глобальной метке
+- m lowercase_letter -- поставить метку
+- ` lowercase_letter -- прыгнуть к метке
+- m UPPERCASE_LETTER -- поставить глобальную метк
+- ` UPPERCASE_LETTER -- прыгнуть к глобальной метке
 - :marks -- список всех меток
 - :delm A-Z0-9 -- удалить метку
 
