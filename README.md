@@ -12,7 +12,21 @@ ln -s /usr/bin/clangd-12 /usr/bin/clangd
 Также нужны Nerd шрифты для отображения иконок в дереве файлов (например, Jet Brains Nerd Mono https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip)
 
 ## Генерация compile_commands.json
-Чтобы lsp нормально подхватывал все инклуды, нужно сгенерировать файл `compile_commands.json`. Для этого нужно при вызове CMake нужно указать флаг `-DCMAKE_EXPORT_COMPILE_COMMANDS=On`.
+Чтобы lsp нормально подхватывал все инклуды, нужно сгенерировать файл `compile_commands.json`.
+
+### В проектах с CMake
+Для генерации этого файла  нужно при вызове CMake нужно указать флаг `-DCMAKE_EXPORT_COMPILE_COMMANDS=On`.
+
+### В проетках без CMake
+Потребуется сторонняя утилита bear
+```bash
+sudo apt install bear
+```
+
+Для генерации файла compile_commands.json запускаем сборку вот так:
+```bash
+bear -- make
+```
 
 ## Сочетания клавиш (leader = пробел)
 
