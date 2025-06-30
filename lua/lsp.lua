@@ -4,7 +4,8 @@ require("lspconfig").clangd.setup({
   cmd = {
     "clangd",
     "--background-index",
-    "--compile-commands-dir=build"
+    "--compile-commands-dir=build",
+    "--header-insertion=never"
   },
   root_dir = require('lspconfig.util').root_pattern(
     "build/compile_commands.json",
