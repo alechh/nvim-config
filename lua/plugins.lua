@@ -11,6 +11,7 @@ require("lazy").setup({
     config = function()
       require('nvim-treesitter.configs').setup {
         ensure_installed = { 'cpp', 'c' }, -- можно добавить другие
+        ignore_install = { "all" },
         highlight = {
           enable = true,              -- включить подсветку
           additional_vim_regex_highlighting = false,
