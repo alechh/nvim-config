@@ -28,3 +28,6 @@ vim.keymap.set("n", "<leader>ps", function()
 end, { desc = "Grep word under cursor" })
 
 vim.keymap.set('n', '<leader>j', vim.diagnostic.open_float)
+
+-- Не копируем старый текст после вставки нового в Visual режиме
+vim.keymap.set("x", "p", [["_dP]], { noremap = true, silent = true })
