@@ -24,7 +24,28 @@ require("lspconfig").clangd.setup({
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+
+    local telescope = require('telescope.builtin')
+    local actions = require('telescope.actions')
+    local action_state = require('telescope.actions.state')
+    vim.keymap.set("n", "gr", function()
+        telescope.lsp_references({
+            initial_mode = "normal",
+            attach_mappings = function(_, map)
+            map('n', '<CR>', function(prompt_bufnr)
+                local entry = action_state.get_selected_entry()
+                actions.select_default:replace(function()
+                actions.close(prompt_bufnr) -- закрываем окно
+                vim.cmd('edit ' .. vim.fn.fnameescape(entry.filename))
+                vim.api.nvim_win_set_cursor(0, { entry.lnum, entry.col - 1 })
+                end)()
+            end)
+            return true
+            end
+        })
+        end
+    , opts)
+
     vim.keymap.set("n", "<leader>f", function()
       if vim.bo.buftype == "terminal" then vim.cmd("stopinsert") end
       require("telescope.builtin").find_files()
