@@ -1,6 +1,6 @@
 ## Что надо установить
 ```bash
-sudo apt install clangd-12 ripgrep
+sudo apt install clangd-12 ripgrep lazygit
 ```
 - clangd нужен версии >=12, чтобы подсветка синтаксиса работала корректно
 
@@ -40,6 +40,7 @@ bear -- make
 - leader + k -- форматирование (cland) выделенного участка кода
 - leader + ps -- поиск по слову, на котором стоит курсор
 - leader + j -- посмотреть сообщение Warning или Error на строке
+- leader + lg -- открыть lazygit окно
 
 ## Стандартные
 - a -- создать файл (в nvim-tree)
