@@ -1,5 +1,19 @@
 local navic = require("nvim-navic")
 
+-- Функция для посветки переменной
+local lspconfig = require("lspconfig")
+local function setup_document_highlight_keymap(bufnr)
+
+    vim.lsp.buf.clear_references()           -- сначала очистить старую
+    vim.lsp.buf.document_highlight()         -- затем подсветить новую
+
+  -- Автоматическое очищение при уходе курсора
+  vim.api.nvim_create_autocmd("CursorMoved", {
+    buffer = bufnr,
+    callback = vim.lsp.buf.clear_references,
+  })
+end
+
 require("lspconfig").clangd.setup({
   cmd = {
     "clangd",
@@ -50,5 +64,7 @@ require("lspconfig").clangd.setup({
       if vim.bo.buftype == "terminal" then vim.cmd("stopinsert") end
       require("telescope.builtin").find_files()
       end, { desc = "Find files" })
+	
+	  vim.keymap.set("n", "<leader>h", setup_document_highlight_keymap, { buffer = bufnr, desc = "Highlight symbol under cursor" })
   end,
 })
