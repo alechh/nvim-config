@@ -11,16 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argv(0) == "" then
-      vim.schedule(function()
-        vim.cmd("NvimTreeOpen")
-      end)
-    end
-  end,
-})
-
 -- Автоматически открывать NvimTree в новом табе, если он был открыт в предыдущем
 local nvimtree_was_open = false
 
@@ -29,15 +19,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   callback = function(args)
     if vim.bo[args.buf].filetype == "NvimTree" then
       nvimtree_was_open = true
-    end
-  end,
-})
-
--- Когда создаётся новый таб — открываем дерево, если оно было открыто
-vim.api.nvim_create_autocmd("TabNewEntered", {
-  callback = function()
-    if nvimtree_was_open then
-      vim.cmd("NvimTreeOpen")
     end
   end,
 })
