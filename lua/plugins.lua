@@ -164,7 +164,7 @@ require("lazy").setup({
         options = {
             theme = "catppuccin",
             icons_enabled = true,
-            section_separators = "",
+            section_separators = { left = '', right = ''},
             component_separators = "|",
             disabled_filetypes = { "alpha", "dashboard", "neo-tree" },
         },
@@ -174,7 +174,7 @@ require("lazy").setup({
             lualine_c = { "filename" },
             lualine_x = { "encoding", "fileformat", "filetype" },
             lualine_y = { "progress" },
-            lualine_z = { "location" },
+            lualine_z = { "location", "lsp_status" },
         },
         }
     end,
