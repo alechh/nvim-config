@@ -57,3 +57,19 @@ vim.api.nvim_create_autocmd("TermEnter", {
 	end,
 })
 
+local telescope = require('telescope.builtin')
+
+local function live_grep_with_filter()
+  vim.ui.input({prompt = 'Паттерн для поиска (например, src/**/*.cpp): '}, function(input)
+    if input == nil or input == '' then
+      print("Отмена поиска")
+      return
+    end
+    telescope.live_grep({
+      glob_pattern = { input },
+    })
+  end)
+end
+
+vim.keymap.set('n', '<leader>k', live_grep_with_filter, { desc = 'Live grep с фильтром по паттерну' })
+
