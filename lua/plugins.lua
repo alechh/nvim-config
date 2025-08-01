@@ -210,5 +210,19 @@ require("lazy").setup({
 	  config = function()
 			require("startup").setup({theme = "startify"}) 
 		end
+	},
+	{
+	  'numToStr/Comment.nvim',
+	  opts = {},
+	  lazy = false,
+	  config = function()
+		require('Comment').setup({
+		  opleader = {
+			line = 'gl',      -- визуальный режим: line comment
+			block = 'gb',     -- визуальный режим: block comment
+		  },
+		})
+		end
 	}
+
 })
