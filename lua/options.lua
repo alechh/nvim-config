@@ -20,3 +20,9 @@ vim.api.nvim_create_autocmd("BufLeave", {
   command = "silent! wall",
 })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("delmarks! | delmarks A-Z0-9")
+  end,
+})
+
